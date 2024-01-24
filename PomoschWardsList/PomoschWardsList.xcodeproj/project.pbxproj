@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,10 @@
 		4E99A01A2B61A43800726C31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E99A0182B61A43800726C31 /* Main.storyboard */; };
 		4E99A01C2B61A43A00726C31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E99A01B2B61A43A00726C31 /* Assets.xcassets */; };
 		4E99A01F2B61A43A00726C31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E99A01D2B61A43A00726C31 /* LaunchScreen.storyboard */; };
+		4EE1AF652B61A8EA0005C47F /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 4EE1AF642B61A8EA0005C47F /* Apollo */; };
+		4EE1AF6A2B61AC120005C47F /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 4EE1AF692B61AC120005C47F /* schema.graphqls */; };
+		4EE1AF6C2B61AC880005C47F /* WardsListQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4EE1AF6B2B61AC880005C47F /* WardsListQuery.graphql */; };
+		4EE1AF6F2B61AD3C0005C47F /* WardsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 4EE1AF6E2B61AD3C0005C47F /* WardsAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,8 @@
 		4E99A01B2B61A43A00726C31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E99A01E2B61A43A00726C31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E99A0202B61A43A00726C31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EE1AF692B61AC120005C47F /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
+		4EE1AF6B2B61AC880005C47F /* WardsListQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = WardsListQuery.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EE1AF652B61A8EA0005C47F /* Apollo in Frameworks */,
+				4EE1AF6F2B61AD3C0005C47F /* WardsAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +64,7 @@
 		4E99A0112B61A43800726C31 /* PomoschWardsList */ = {
 			isa = PBXGroup;
 			children = (
+				4EE1AF682B61AC120005C47F /* Graphql */,
 				4E99A0122B61A43800726C31 /* AppDelegate.swift */,
 				4E99A0142B61A43800726C31 /* SceneDelegate.swift */,
 				4E99A0162B61A43800726C31 /* ViewController.swift */,
@@ -66,6 +75,15 @@
 			);
 			path = PomoschWardsList;
 			sourceTree = "<group>";
+		};
+		4EE1AF682B61AC120005C47F /* Graphql */ = {
+			isa = PBXGroup;
+			children = (
+				4EE1AF692B61AC120005C47F /* schema.graphqls */,
+				4EE1AF6B2B61AC880005C47F /* WardsListQuery.graphql */,
+			);
+			path = Graphql;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -83,6 +101,10 @@
 			dependencies = (
 			);
 			name = PomoschWardsList;
+			packageProductDependencies = (
+				4EE1AF642B61A8EA0005C47F /* Apollo */,
+				4EE1AF6E2B61AD3C0005C47F /* WardsAPI */,
+			);
 			productName = PomoschWardsList;
 			productReference = 4E99A00F2B61A43800726C31 /* PomoschWardsList.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +133,10 @@
 				Base,
 			);
 			mainGroup = 4E99A0062B61A43800726C31;
+			packageReferences = (
+				4EE1AF632B61A8EA0005C47F /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				4EE1AF6D2B61AD3C0005C47F /* XCLocalSwiftPackageReference "WardsAPI" */,
+			);
 			productRefGroup = 4E99A0102B61A43800726C31 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +151,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EE1AF6C2B61AC880005C47F /* WardsListQuery.graphql in Resources */,
+				4EE1AF6A2B61AC120005C47F /* schema.graphqls in Resources */,
 				4E99A01F2B61A43A00726C31 /* LaunchScreen.storyboard in Resources */,
 				4E99A01C2B61A43A00726C31 /* Assets.xcassets in Resources */,
 				4E99A01A2B61A43800726C31 /* Main.storyboard in Resources */,
@@ -363,6 +391,36 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		4EE1AF6D2B61AD3C0005C47F /* XCLocalSwiftPackageReference "WardsAPI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = WardsAPI;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4EE1AF632B61A8EA0005C47F /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4EE1AF642B61A8EA0005C47F /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4EE1AF632B61A8EA0005C47F /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		4EE1AF6E2B61AD3C0005C47F /* WardsAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WardsAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4E99A0072B61A43800726C31 /* Project object */;
 }

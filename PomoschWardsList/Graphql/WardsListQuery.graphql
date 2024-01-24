@@ -1,0 +1,32 @@
+query WardsList($first: Int, $after: String) {
+ wards
+  (first: $first,
+    after: $after,
+  order: {publicInformation: {name: {displayName: ASC}}}
+  )
+   {
+  edges {
+    node {
+      id
+      publicInformation {
+        name {
+          displayName
+        }
+        dateOfBirth
+        dateOfDeath
+        city
+        photo {
+          url
+        }
+        story
+      }
+    }
+    cursor
+  }
+  pageInfo {
+    startCursor
+    endCursor
+    hasNextPage
+  }
+}
+}
