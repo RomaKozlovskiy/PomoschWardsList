@@ -15,6 +15,10 @@
 		4EBB41192B626F3F00F8C47E /* WardsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41182B626F3F00F8C47E /* WardsListPresenter.swift */; };
 		4EBB411D2B62738000F8C47E /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB411C2B62738000F8C47E /* Assembly.swift */; };
 		4EBB411F2B62738600F8C47E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB411E2B62738600F8C47E /* Router.swift */; };
+		4EBB41212B62B3C000F8C47E /* WardsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41202B62B3C000F8C47E /* WardsListTableViewCell.swift */; };
+		4EBB41242B62FB1400F8C47E /* Extension + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */; };
+		4EBB41262B62FC4800F8C47E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41252B62FC4800F8C47E /* Config.swift */; };
+		4EBB41282B631B1B00F8C47E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41272B631B1B00F8C47E /* Constants.swift */; };
 		4EE1AF652B61A8EA0005C47F /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 4EE1AF642B61A8EA0005C47F /* Apollo */; };
 		4EE1AF6A2B61AC120005C47F /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 4EE1AF692B61AC120005C47F /* schema.graphqls */; };
 		4EE1AF6C2B61AC880005C47F /* WardsListQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4EE1AF6B2B61AC880005C47F /* WardsListQuery.graphql */; };
@@ -34,6 +38,10 @@
 		4EBB41182B626F3F00F8C47E /* WardsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListPresenter.swift; sourceTree = "<group>"; };
 		4EBB411C2B62738000F8C47E /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		4EBB411E2B62738600F8C47E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		4EBB41202B62B3C000F8C47E /* WardsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListTableViewCell.swift; sourceTree = "<group>"; };
+		4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImageView.swift"; sourceTree = "<group>"; };
+		4EBB41252B62FC4800F8C47E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		4EBB41272B631B1B00F8C47E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4EE1AF692B61AC120005C47F /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
 		4EE1AF6B2B61AC880005C47F /* WardsListQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = WardsListQuery.graphql; sourceTree = "<group>"; };
 		4EE1AF702B61ADF40005C47F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -74,6 +82,7 @@
 			children = (
 				4EE1AF682B61AC120005C47F /* Graphql */,
 				4EE1AF732B61B0A70005C47F /* ApplicationLayer */,
+				4EBB41222B62FAF500F8C47E /* Extensions */,
 				4EE1AF742B61B0B60005C47F /* PresentationLayer */,
 				4EE1AF752B61B0CA0005C47F /* NetworkLayer */,
 				4EE1AF762B61B0EF0005C47F /* Resources */,
@@ -95,8 +104,18 @@
 			children = (
 				4E99A0162B61A43800726C31 /* WardsListViewController.swift */,
 				4EBB41182B626F3F00F8C47E /* WardsListPresenter.swift */,
+				4EBB41202B62B3C000F8C47E /* WardsListTableViewCell.swift */,
+				4EBB41272B631B1B00F8C47E /* Constants.swift */,
 			);
 			path = WardsListModule;
+			sourceTree = "<group>";
+		};
+		4EBB41222B62FAF500F8C47E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4EE1AF682B61AC120005C47F /* Graphql */ = {
@@ -132,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				4EE1AF702B61ADF40005C47F /* NetworkService.swift */,
+				4EBB41252B62FC4800F8C47E /* Config.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -227,12 +247,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E99A0172B61A43800726C31 /* WardsListViewController.swift in Sources */,
+				4EBB41282B631B1B00F8C47E /* Constants.swift in Sources */,
 				4EBB411D2B62738000F8C47E /* Assembly.swift in Sources */,
+				4EBB41242B62FB1400F8C47E /* Extension + UIImageView.swift in Sources */,
 				4E99A0132B61A43800726C31 /* AppDelegate.swift in Sources */,
 				4EBB411F2B62738600F8C47E /* Router.swift in Sources */,
 				4EE1AF712B61ADF40005C47F /* NetworkService.swift in Sources */,
 				4EBB41192B626F3F00F8C47E /* WardsListPresenter.swift in Sources */,
+				4EBB41262B62FC4800F8C47E /* Config.swift in Sources */,
 				4E99A0152B61A43800726C31 /* SceneDelegate.swift in Sources */,
+				4EBB41212B62B3C000F8C47E /* WardsListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

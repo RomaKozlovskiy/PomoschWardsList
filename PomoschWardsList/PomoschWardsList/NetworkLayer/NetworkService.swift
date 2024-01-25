@@ -19,5 +19,5 @@ protocol NetworkServiceProtocol: AnyObject {
 // MARK: - NetworkService
 
 final class NetworkService: NetworkServiceProtocol {
-    var apollo: ApolloClient = ApolloClient(url: URL(string: "https://api.pomosch.app/graphql")!)
+    var apollo: ApolloClient = ApolloClient(url: Config.graphqlURL)
 }
