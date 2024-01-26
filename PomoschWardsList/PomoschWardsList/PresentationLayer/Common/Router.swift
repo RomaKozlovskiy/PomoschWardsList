@@ -38,6 +38,6 @@ final class Router: RouterProtocol {
     
     func showWardInfo(with wardInfo: WardsListQuery.Data.Wards.Edge.Node.PublicInformation) {
         let wardInfoViewController = assembly.createWardInfoModule(router: self, ward: wardInfo)
-        navigationController.pushViewController(wardInfoViewController, animated: true)
+        navigationController.present(wardInfoViewController, animated: true)
     }
 }
