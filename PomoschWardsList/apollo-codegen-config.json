@@ -1,0 +1,43 @@
+{
+  "schemaNamespace" : "WardsAPI",
+  "input" : {
+    "operationSearchPaths" : [
+      "**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "**/*.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes" : {
+      "path" : "./WardsAPI",
+      "moduleType" : {
+        "swiftPackageManager" : {
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  },
+"schemaDownloadConfiguration": {
+"downloadMethod": {
+"introspection": {
+"endpointURL": "https://api.pomosch.app/graphql",
+"httpMethod": {
+"POST": {}
+},
+"includeDeprecatedInputValues": false,
+"outputFormat": "SDL"
+}
+},
+"downloadTimeout": 60,
+"headers": [],
+"outputPath": "./Graphql/schema.graphqls"
+}
+}
