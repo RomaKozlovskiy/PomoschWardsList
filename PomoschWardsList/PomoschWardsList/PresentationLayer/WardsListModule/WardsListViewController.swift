@@ -100,6 +100,7 @@ extension WardsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let ward = presenter?.wardsList[indexPath.row].node.publicInformation else { return }
+        tableView.deselectRow(at: indexPath, animated: true)
         presenter?.rowDidSelect(with: ward)
     }
 }
