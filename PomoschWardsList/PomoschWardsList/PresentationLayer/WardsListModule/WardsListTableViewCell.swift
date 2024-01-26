@@ -61,8 +61,8 @@ final class WardsListTableViewCell: UITableViewCell {
         
         wardsFullName.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalTo(wardsPhoto.snp.trailing).offset(10)
-            $0.trailing.equalToSuperview().inset(10)
+            $0.leading.equalTo(wardsPhoto.snp.trailing).offset(Constants.tableViewCellInset)
+            $0.trailing.equalToSuperview().inset(Constants.tableViewCellInset)
         }
     }
 }

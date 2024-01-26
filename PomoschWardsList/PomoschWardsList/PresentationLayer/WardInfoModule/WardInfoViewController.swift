@@ -44,7 +44,7 @@ final class WardInfoViewController: UIViewController {
         presenter?.viewDidLoaded()
     }
     
-    // MARK: - PrivateMethods
+    // MARK: - Private Methods
     
     private func addSubviews() {
         view.addSubview(wardPhoto)

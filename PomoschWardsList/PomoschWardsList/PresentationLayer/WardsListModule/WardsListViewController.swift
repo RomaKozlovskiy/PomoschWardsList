@@ -79,7 +79,6 @@ extension WardsListViewController: UITableViewDataSource {
         
         if let ward = presenter?.wardsList[indexPath.row].node.publicInformation {
             cell.setupWith(ward: ward)
-            
         }
         return cell
     }
