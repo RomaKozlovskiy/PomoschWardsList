@@ -19,6 +19,8 @@
 		4EBB41242B62FB1400F8C47E /* Extension + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */; };
 		4EBB41262B62FC4800F8C47E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41252B62FC4800F8C47E /* Config.swift */; };
 		4EBB41282B631B1B00F8C47E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41272B631B1B00F8C47E /* Constants.swift */; };
+		4EBB412B2B63264800F8C47E /* WardInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB412A2B63264800F8C47E /* WardInfoViewController.swift */; };
+		4EBB412D2B63265000F8C47E /* WardInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB412C2B63265000F8C47E /* WardInfoPresenter.swift */; };
 		4EE1AF652B61A8EA0005C47F /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 4EE1AF642B61A8EA0005C47F /* Apollo */; };
 		4EE1AF6A2B61AC120005C47F /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 4EE1AF692B61AC120005C47F /* schema.graphqls */; };
 		4EE1AF6C2B61AC880005C47F /* WardsListQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4EE1AF6B2B61AC880005C47F /* WardsListQuery.graphql */; };
@@ -42,6 +44,8 @@
 		4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImageView.swift"; sourceTree = "<group>"; };
 		4EBB41252B62FC4800F8C47E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		4EBB41272B631B1B00F8C47E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4EBB412A2B63264800F8C47E /* WardInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardInfoViewController.swift; sourceTree = "<group>"; };
+		4EBB412C2B63265000F8C47E /* WardInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardInfoPresenter.swift; sourceTree = "<group>"; };
 		4EE1AF692B61AC120005C47F /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
 		4EE1AF6B2B61AC880005C47F /* WardsListQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = WardsListQuery.graphql; sourceTree = "<group>"; };
 		4EE1AF702B61ADF40005C47F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			children = (
 				4EBB411C2B62738000F8C47E /* Assembly.swift */,
 				4EBB411E2B62738600F8C47E /* Router.swift */,
+				4EBB41272B631B1B00F8C47E /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -105,7 +110,6 @@
 				4E99A0162B61A43800726C31 /* WardsListViewController.swift */,
 				4EBB41182B626F3F00F8C47E /* WardsListPresenter.swift */,
 				4EBB41202B62B3C000F8C47E /* WardsListTableViewCell.swift */,
-				4EBB41272B631B1B00F8C47E /* Constants.swift */,
 			);
 			path = WardsListModule;
 			sourceTree = "<group>";
@@ -116,6 +120,15 @@
 				4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4EBB41292B63261400F8C47E /* WardInfoModule */ = {
+			isa = PBXGroup;
+			children = (
+				4EBB412A2B63264800F8C47E /* WardInfoViewController.swift */,
+				4EBB412C2B63265000F8C47E /* WardInfoPresenter.swift */,
+			);
+			path = WardInfoModule;
 			sourceTree = "<group>";
 		};
 		4EE1AF682B61AC120005C47F /* Graphql */ = {
@@ -143,6 +156,7 @@
 			children = (
 				4EBB411A2B62735300F8C47E /* Common */,
 				4EBB411B2B62735D00F8C47E /* WardsListModule */,
+				4EBB41292B63261400F8C47E /* WardInfoModule */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -248,8 +262,10 @@
 			files = (
 				4E99A0172B61A43800726C31 /* WardsListViewController.swift in Sources */,
 				4EBB41282B631B1B00F8C47E /* Constants.swift in Sources */,
+				4EBB412D2B63265000F8C47E /* WardInfoPresenter.swift in Sources */,
 				4EBB411D2B62738000F8C47E /* Assembly.swift in Sources */,
 				4EBB41242B62FB1400F8C47E /* Extension + UIImageView.swift in Sources */,
+				4EBB412B2B63264800F8C47E /* WardInfoViewController.swift in Sources */,
 				4E99A0132B61A43800726C31 /* AppDelegate.swift in Sources */,
 				4EBB411F2B62738600F8C47E /* Router.swift in Sources */,
 				4EE1AF712B61ADF40005C47F /* NetworkService.swift in Sources */,

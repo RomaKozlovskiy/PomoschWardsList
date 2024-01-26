@@ -20,6 +20,7 @@ protocol WardsListPresenterProtocol: AnyObject {
     
     func fetchWardsList()
     func fetchAdditionalWardsList()
+    func rowDidSelect(with ward: WardsListQuery.Data.Wards.Edge.Node.PublicInformation)
 }
 
 // MARK: - WardsListPresenter
@@ -80,5 +81,9 @@ final class WardsListPresenter: WardsListPresenterProtocol {
                 print(error)
             }
         }
+    }
+    
+    func rowDidSelect(with ward: WardsListQuery.Data.Wards.Edge.Node.PublicInformation) {
+        router.showWardInfo(with: ward)
     }
 }

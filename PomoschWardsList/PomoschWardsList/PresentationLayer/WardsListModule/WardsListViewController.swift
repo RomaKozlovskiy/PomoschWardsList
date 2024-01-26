@@ -22,7 +22,7 @@ final class WardsListViewController: UIViewController {
     
     // MARK: - Properties
     
-    var presenter: WardsListPresenter?
+    var presenter: WardsListPresenterProtocol?
     private let tableView: UITableView = UITableView()
     
     // MARK: - ViewLifecycle
@@ -97,6 +97,11 @@ extension WardsListViewController: UITableViewDelegate {
         if indexPath.row == wardsCount - 3 {
             presenter?.fetchAdditionalWardsList()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let ward = presenter?.wardsList[indexPath.row].node.publicInformation else { return }
+        presenter?.rowDidSelect(with: ward)
     }
 }
 
