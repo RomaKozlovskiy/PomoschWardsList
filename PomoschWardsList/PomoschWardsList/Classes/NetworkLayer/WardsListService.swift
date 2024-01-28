@@ -9,6 +9,10 @@ import Foundation
 import Apollo
 import WardsAPI
 
+private enum Constants {
+    static let countOfWardsInRequest = 40
+}
+
 protocol WardsListServiceProtocol: AnyObject {
     func fetchWardsList(
         cursor: String?,
@@ -24,7 +28,9 @@ final class WardsListService: WardsListServiceProtocol {
         completion: @escaping (Result<WardsListModel, Error>) -> Void) {
             
             if cursor == nil {
-                let query = WardsListQuery(first: 20, after: nil)
+                let query = WardsListQuery(
+                    first: GraphQLNullable<Int>(integerLiteral: Constants.countOfWardsInRequest),
+                    after: nil)
                 
                 apollo.fetch(query: query) { [weak self] result in
                     switch result {
@@ -40,7 +46,9 @@ final class WardsListService: WardsListServiceProtocol {
                     }
                 }
             } else if cursor != nil {
-                let query = WardsListQuery(first: 20, after: GraphQLNullable(stringLiteral: cursor!))
+                let query = WardsListQuery(
+                    first: GraphQLNullable<Int>(integerLiteral: Constants.countOfWardsInRequest),
+                    after: GraphQLNullable(stringLiteral: cursor!))
                 
                 apollo.fetch(query: query) { [weak self] result in
                     switch result {
@@ -61,30 +69,30 @@ final class WardsListService: WardsListServiceProtocol {
     // MARK: - Private Methods
     
     private func getWardsModel(
-        from wardsListQuery: [WardsListQuery.Data.Wards.Edge]?) -> [WardListModel] {
-        let wardsModel = wardsListQuery?.compactMap({ wardsListQuery in
-            WardListModel(id: wardsListQuery.node.id,
-                      fullName: wardsListQuery.node.publicInformation.name.displayName,
-                      city: wardsListQuery.node.publicInformation.city,
-                      photoUrl: wardsListQuery.node.publicInformation.photo.url)
-        })
-        
-        return wardsModel ?? []
-    }
+        from wardsListQuery: [WardsListQuery.Data.Wards.Edge]?) -> [WardModel] {
+            let wardsModel = wardsListQuery?.compactMap({ wardsListQuery in
+                WardModel(id: wardsListQuery.node.id,
+                          fullName: wardsListQuery.node.publicInformation.name.displayName,
+                          city: wardsListQuery.node.publicInformation.city,
+                          photoUrl: wardsListQuery.node.publicInformation.photo.url)
+            })
+            
+            return wardsModel ?? []
+        }
     
     private func getPageInfo(
         from pageInfo: WardsListQuery.Data.Wards.PageInfo?) -> PageInfoModel? {
-        let pageInfo = PageInfoModel(
-            hasNextPage: pageInfo?.hasNextPage ?? false,
-            endCursor: pageInfo?.endCursor)
-        return pageInfo
-    }
+            let pageInfo = PageInfoModel(
+                hasNextPage: pageInfo?.hasNextPage ?? false,
+                endCursor: pageInfo?.endCursor)
+            return pageInfo
+        }
     
     private func getWardsListModel(
         from wardsListQuery: WardsListQuery.Data) -> WardsListModel {
-        let wardsModel = getWardsModel(from: wardsListQuery.wards?.edges)
-        let pageInfoModel = getPageInfo(from: wardsListQuery.wards?.pageInfo)
-        let wardsListModel = WardsListModel(wards: wardsModel, pageInfo: pageInfoModel)
-        return wardsListModel
-    }
+            let wardsModel = getWardsModel(from: wardsListQuery.wards?.edges)
+            let pageInfoModel = getPageInfo(from: wardsListQuery.wards?.pageInfo)
+            let wardsListModel = WardsListModel(wards: wardsModel, pageInfo: pageInfoModel)
+            return wardsListModel
+        }
 }

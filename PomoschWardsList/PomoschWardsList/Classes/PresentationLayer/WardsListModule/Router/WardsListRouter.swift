@@ -8,7 +8,7 @@
 import UIKit
 
 protocol WardsListRouterProtocol {
-    func opedWardInfoModule()
+    func openWardInfoModule()
 }
 
 final class WardsListRouter: WardsListRouterProtocol {
@@ -19,7 +19,7 @@ final class WardsListRouter: WardsListRouterProtocol {
         self.navigationController = navigationController
     }
     
-    func opedWardInfoModule() {
+    func openWardInfoModule() {
         let wardInfoModule = WardsListModuleBuilder().build()
         navigationController.present(wardInfoModule, animated: true)
     }

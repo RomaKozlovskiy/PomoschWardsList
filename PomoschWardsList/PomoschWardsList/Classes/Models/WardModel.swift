@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WardListModel {
+struct WardModel {
     let id: String
     let fullName: String
     let city: String
@@ -30,6 +30,6 @@ struct PageInfoModel {
 }
 
 struct WardsListModel {
-    let wards: [WardListModel]
+    let wards: [WardModel]
     let pageInfo: PageInfoModel?
 }

@@ -86,7 +86,7 @@ extension WardInfoViewController: WardInfoViewProtocol {
     func showWardInfo(
         with ward: WardsAPI.WardsListQuery.Data.Wards.Edge.Node.PublicInformation,
         yearsOfLife: String) {
-            wardPhoto.loadPhotoFrom(stringUrl: ward.photo.url)
+           // wardPhoto.loadPhotoFrom(stringUrl: ward.photo.url)
             fullNameLabel.text = ward.name.displayName
             yearsOfLifeLabel.text = yearsOfLife
             cityLabel.text = ward.city

@@ -7,18 +7,21 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 private enum Constants {
-    static let rowHeight: CGFloat = 70
+    static let rowHeight: CGFloat = 60
     static let cellInset = 10
     static let wardPhotoFrame = Int(rowHeight) - cellInset * 2
+    static let wardsFullNameFontSize: CGFloat = 17
+    static let cityLabelFontSize: CGFloat = 14
 }
 
 final class WardsListTableViewCell: UITableViewCell {
     
     // MARK: - UI Propersies
     
-    private lazy var wardsPhoto: UIImageView = {
+    private lazy var wardPhoto: UIImageView = {
         let wardsPhoto = UIImageView()
         wardsPhoto.clipsToBounds = true
         wardsPhoto.contentMode = .scaleAspectFill
@@ -26,11 +29,19 @@ final class WardsListTableViewCell: UITableViewCell {
         return wardsPhoto
     }()
     
-    private lazy var wardsFullName: UILabel = {
+    private lazy var wardFullName: UILabel = {
         let wardsFullName = UILabel()
-        wardsFullName.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        wardsFullName.font = UIFont.systemFont(ofSize: Constants.wardsFullNameFontSize, weight: .regular)
         wardsFullName.numberOfLines = 2
         return wardsFullName
+    }()
+    
+    private lazy var cityLabel: UILabel = {
+        let cityLabel = UILabel()
+        cityLabel.font = UIFont.systemFont(ofSize: Constants.cityLabelFontSize, weight: .regular)
+        cityLabel.textColor = .gray
+        cityLabel.numberOfLines = 2
+        return cityLabel
     }()
     
     // MARK: - Init
@@ -48,8 +59,8 @@ final class WardsListTableViewCell: UITableViewCell {
     // MARK: - Override
     
     override func prepareForReuse() {
-        wardsPhoto.image = nil
-        wardsFullName.text = nil
+        wardPhoto.image = nil
+        wardFullName.text = nil
     }
   
     // MARK: - Public Methods
@@ -58,27 +69,35 @@ final class WardsListTableViewCell: UITableViewCell {
         Constants.rowHeight
     }
     
-    func setupWith(ward: WardListModel) {
-        wardsPhoto.loadPhotoFrom(stringUrl: ward.photoUrl)
-        wardsFullName.text = ward.fullName
+    func setupWith(ward: WardModel) {
+        wardPhoto.kf.setImage(with: URL(string: ward.photoUrl))
+        wardFullName.text = ward.fullName
+        cityLabel.text = ward.city
     }
     
     // MARK: - Private Methods
     
     private func addSubviews() {
-        addSubview(wardsPhoto)
-        addSubview(wardsFullName)
+        addSubview(wardPhoto)
+        addSubview(wardFullName)
+        addSubview(cityLabel)
     }
     
     private func applyConstraints() {
-        wardsPhoto.snp.makeConstraints {
+        wardPhoto.snp.makeConstraints {
             $0.leading.top.bottom.equalToSuperview().inset(Constants.cellInset)
             $0.width.equalTo(Constants.wardPhotoFrame)
         }
         
-        wardsFullName.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.equalTo(wardsPhoto.snp.trailing).offset(Constants.cellInset)
+        wardFullName.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(10)
+            $0.leading.equalTo(wardPhoto.snp.trailing).offset(Constants.cellInset)
+            $0.trailing.equalToSuperview().inset(Constants.cellInset)
+        }
+        
+        cityLabel.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(10)
+            $0.leading.equalTo(wardPhoto.snp.trailing).offset(Constants.cellInset)
             $0.trailing.equalToSuperview().inset(Constants.cellInset)
         }
     }

@@ -28,7 +28,6 @@ final class WardsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         setupTableView()
         presenter?.viewDidLoad()
     }
@@ -43,6 +42,7 @@ final class WardsListViewController: UIViewController {
         }
         
         let reuseIdentifier = String(describing: WardsListTableViewCell.self)
+        
         tableView.register(WardsListTableViewCell.self,
                            forCellReuseIdentifier: reuseIdentifier)
         tableView.dataSource = self
@@ -75,9 +75,11 @@ extension WardsListViewController: UITableViewDataSource {
             fatalError("The TableView could not dequeue a WardsListTableViewCell in ViewController.")
         }
         
-        if let ward = presenter.wardsList?[indexPath.row] {
-            cell.setupWith(ward: ward)
+        guard let ward = presenter.wardsList?[indexPath.row] else {
+            return cell
         }
+        
+        cell.setupWith(ward: ward)
         return cell
     }
 }
@@ -98,8 +100,8 @@ extension WardsListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let ward = presenter.wardsList?[indexPath.row] else { return } //TODO: убрать node.pub......
-        tableView.deselectRow(at: indexPath, animated: true)
+        guard let ward = presenter.wardsList?[indexPath.row] else { return } 
         presenter.didSelectRow(with: ward)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

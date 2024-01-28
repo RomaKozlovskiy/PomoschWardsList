@@ -14,7 +14,6 @@
 		4E99A01F2B61A43A00726C31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E99A01D2B61A43A00726C31 /* LaunchScreen.storyboard */; };
 		4EBB41192B626F3F00F8C47E /* WardsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41182B626F3F00F8C47E /* WardsListPresenter.swift */; };
 		4EBB41212B62B3C000F8C47E /* WardsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41202B62B3C000F8C47E /* WardsListTableViewCell.swift */; };
-		4EBB41242B62FB1400F8C47E /* Extension + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */; };
 		4EBB41262B62FC4800F8C47E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41252B62FC4800F8C47E /* Config.swift */; };
 		4EBB412B2B63264800F8C47E /* WardInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB412A2B63264800F8C47E /* WardInfoViewController.swift */; };
 		4EBB412D2B63265000F8C47E /* WardInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB412C2B63265000F8C47E /* WardInfoPresenter.swift */; };
@@ -27,6 +26,7 @@
 		4EF48EDD2B6581DA009169F3 /* WardsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF48EDC2B6581DA009169F3 /* WardsListRouter.swift */; };
 		4EF48EE32B658870009169F3 /* WardsListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF48EE22B658870009169F3 /* WardsListModuleBuilder.swift */; };
 		4EF48EE62B663F4E009169F3 /* WardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF48EE52B663F4E009169F3 /* WardModel.swift */; };
+		4EF48EE92B668752009169F3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4EF48EE82B668752009169F3 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +39,6 @@
 		4E99A0202B61A43A00726C31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EBB41182B626F3F00F8C47E /* WardsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListPresenter.swift; sourceTree = "<group>"; };
 		4EBB41202B62B3C000F8C47E /* WardsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListTableViewCell.swift; sourceTree = "<group>"; };
-		4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImageView.swift"; sourceTree = "<group>"; };
 		4EBB41252B62FC4800F8C47E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		4EBB412A2B63264800F8C47E /* WardInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardInfoViewController.swift; sourceTree = "<group>"; };
 		4EBB412C2B63265000F8C47E /* WardInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardInfoPresenter.swift; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF48EE92B668752009169F3 /* Kingfisher in Frameworks */,
 				4EE1AF792B61B2E70005C47F /* SnapKit in Frameworks */,
 				4EE1AF652B61A8EA0005C47F /* Apollo in Frameworks */,
 				4EE1AF6F2B61AD3C0005C47F /* WardsAPI in Frameworks */,
@@ -99,14 +99,6 @@
 				4EF48EDE2B658803009169F3 /* View */,
 			);
 			path = WardsListModule;
-			sourceTree = "<group>";
-		};
-		4EBB41222B62FAF500F8C47E /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4EBB41292B63261400F8C47E /* WardInfoModule */ = {
@@ -172,7 +164,6 @@
 				4EE1AF742B61B0B60005C47F /* PresentationLayer */,
 				4EF48EE42B663EFC009169F3 /* Models */,
 				4EE1AF752B61B0CA0005C47F /* NetworkLayer */,
-				4EBB41222B62FAF500F8C47E /* Extensions */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -238,6 +229,7 @@
 				4EE1AF642B61A8EA0005C47F /* Apollo */,
 				4EE1AF6E2B61AD3C0005C47F /* WardsAPI */,
 				4EE1AF782B61B2E70005C47F /* SnapKit */,
+				4EF48EE82B668752009169F3 /* Kingfisher */,
 			);
 			productName = PomoschWardsList;
 			productReference = 4E99A00F2B61A43800726C31 /* PomoschWardsList.app */;
@@ -271,6 +263,7 @@
 				4EE1AF632B61A8EA0005C47F /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				4EE1AF6D2B61AD3C0005C47F /* XCLocalSwiftPackageReference "WardsAPI" */,
 				4EE1AF772B61B2E70005C47F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				4EF48EE72B668752009169F3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 4E99A0102B61A43800726C31 /* Products */;
 			projectDirPath = "";
@@ -304,7 +297,6 @@
 				4EF48EE62B663F4E009169F3 /* WardModel.swift in Sources */,
 				4EBB412D2B63265000F8C47E /* WardInfoPresenter.swift in Sources */,
 				4EF48EDD2B6581DA009169F3 /* WardsListRouter.swift in Sources */,
-				4EBB41242B62FB1400F8C47E /* Extension + UIImageView.swift in Sources */,
 				4EBB412B2B63264800F8C47E /* WardInfoViewController.swift in Sources */,
 				4E99A0132B61A43800726C31 /* AppDelegate.swift in Sources */,
 				4EE1AF712B61ADF40005C47F /* WardsListService.swift in Sources */,
@@ -560,6 +552,14 @@
 				minimumVersion = 5.7.0;
 			};
 		};
+		4EF48EE72B668752009169F3 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -576,6 +576,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4EE1AF772B61B2E70005C47F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		4EF48EE82B668752009169F3 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4EF48EE72B668752009169F3 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
