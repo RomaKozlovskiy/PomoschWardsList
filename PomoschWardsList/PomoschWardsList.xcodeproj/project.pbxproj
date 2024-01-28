@@ -27,6 +27,8 @@
 		4EF48EE32B658870009169F3 /* WardsListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF48EE22B658870009169F3 /* WardsListModuleBuilder.swift */; };
 		4EF48EE62B663F4E009169F3 /* WardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF48EE52B663F4E009169F3 /* WardModel.swift */; };
 		4EF48EE92B668752009169F3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4EF48EE82B668752009169F3 /* Kingfisher */; };
+		4EF48EEE2B669E23009169F3 /* WardInfoModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF48EED2B669E23009169F3 /* WardInfoModuleBuilder.swift */; };
+		4EF48EF02B66A773009169F3 /* WardInfoQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4EF48EEF2B66A773009169F3 /* WardInfoQuery.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		4EF48EDC2B6581DA009169F3 /* WardsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListRouter.swift; sourceTree = "<group>"; };
 		4EF48EE22B658870009169F3 /* WardsListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListModuleBuilder.swift; sourceTree = "<group>"; };
 		4EF48EE52B663F4E009169F3 /* WardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardModel.swift; sourceTree = "<group>"; };
+		4EF48EED2B669E23009169F3 /* WardInfoModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardInfoModuleBuilder.swift; sourceTree = "<group>"; };
+		4EF48EEF2B66A773009169F3 /* WardInfoQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = WardInfoQuery.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +108,9 @@
 		4EBB41292B63261400F8C47E /* WardInfoModule */ = {
 			isa = PBXGroup;
 			children = (
-				4EBB412A2B63264800F8C47E /* WardInfoViewController.swift */,
-				4EBB412C2B63265000F8C47E /* WardInfoPresenter.swift */,
+				4EF48EEC2B669E07009169F3 /* Builder */,
+				4EF48EEA2B669DDD009169F3 /* Presenter */,
+				4EF48EEB2B669DEB009169F3 /* View */,
 			);
 			path = WardInfoModule;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 			children = (
 				4EE1AF692B61AC120005C47F /* schema.graphqls */,
 				4EE1AF6B2B61AC880005C47F /* WardsListQuery.graphql */,
+				4EF48EEF2B66A773009169F3 /* WardInfoQuery.graphql */,
 			);
 			path = Graphql;
 			sourceTree = SOURCE_ROOT;
@@ -209,6 +215,30 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4EF48EEA2B669DDD009169F3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4EBB412C2B63265000F8C47E /* WardInfoPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4EF48EEB2B669DEB009169F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EBB412A2B63264800F8C47E /* WardInfoViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EF48EEC2B669E07009169F3 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				4EF48EED2B669E23009169F3 /* WardInfoModuleBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -281,6 +311,7 @@
 			files = (
 				4EE1AF6C2B61AC880005C47F /* WardsListQuery.graphql in Resources */,
 				4EE1AF6A2B61AC120005C47F /* schema.graphqls in Resources */,
+				4EF48EF02B66A773009169F3 /* WardInfoQuery.graphql in Resources */,
 				4E99A01F2B61A43A00726C31 /* LaunchScreen.storyboard in Resources */,
 				4E99A01C2B61A43A00726C31 /* Assets.xcassets in Resources */,
 			);
@@ -303,6 +334,7 @@
 				4EF48EE32B658870009169F3 /* WardsListModuleBuilder.swift in Sources */,
 				4EBB41192B626F3F00F8C47E /* WardsListPresenter.swift in Sources */,
 				4EBB41262B62FC4800F8C47E /* Config.swift in Sources */,
+				4EF48EEE2B669E23009169F3 /* WardInfoModuleBuilder.swift in Sources */,
 				4E99A0152B61A43800726C31 /* SceneDelegate.swift in Sources */,
 				4EBB41212B62B3C000F8C47E /* WardsListTableViewCell.swift in Sources */,
 			);

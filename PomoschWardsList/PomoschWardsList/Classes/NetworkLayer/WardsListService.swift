@@ -17,9 +17,30 @@ protocol WardsListServiceProtocol: AnyObject {
     func fetchWardsList(
         cursor: String?,
         completion: @escaping (Result<WardsListModel, Error>) -> Void)
+    
+    func fetchWardInfo(by id: String,
+                       completion: @escaping (Result<WardInfoModel, Error>) -> Void)
 }
 
 final class WardsListService: WardsListServiceProtocol {
+    
+    func fetchWardInfo(
+        by id: String,
+        completion: @escaping (Result<WardInfoModel, Error>) -> Void) {
+       let query = WardInfoQuery(id: id)
+            apollo.fetch(query: query) { [weak self] result in
+                switch result {
+                    
+                case .success(let wardInfo):
+                    guard let wardInfo = self?.getWardInfo(from: wardInfo) else { return }
+                    completion(.success(wardInfo))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+                
+            }
+    }
+    
     
     private let apollo: ApolloClient = ApolloClient(url: Config.graphqlURL)
     
@@ -85,7 +106,7 @@ final class WardsListService: WardsListServiceProtocol {
             let pageInfo = PageInfoModel(
                 hasNextPage: pageInfo?.hasNextPage ?? false,
                 endCursor: pageInfo?.endCursor)
-            return pageInfo
+                return pageInfo
         }
     
     private func getWardsListModel(
@@ -95,4 +116,15 @@ final class WardsListService: WardsListServiceProtocol {
             let wardsListModel = WardsListModel(wards: wardsModel, pageInfo: pageInfoModel)
             return wardsListModel
         }
+    
+    private func getWardInfo(
+        from wardInfoQuery: GraphQLResult<WardInfoQuery.Data>) -> WardInfoModel {
+            let wardInfoModel = WardInfoModel(
+                id: wardInfoQuery.data?.wardById?.id ?? "",
+                fullName: wardInfoQuery.data?.wardById?.publicInformation.name.displayName ?? "",
+                story: wardInfoQuery.data?.wardById?.publicInformation.story ?? "",
+                photoUrl: wardInfoQuery.data?.wardById?.publicInformation.photo.url ?? "")
+                return wardInfoModel
+        }
+    
 }

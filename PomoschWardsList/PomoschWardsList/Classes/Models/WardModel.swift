@@ -17,9 +17,6 @@ struct WardModel {
 struct WardInfoModel {
     let id: String
     let fullName: String
-    let dateOfBirth: String
-    let dateOfDeath: String?
-    let city: String
     let story: String
     let photoUrl: String
 }

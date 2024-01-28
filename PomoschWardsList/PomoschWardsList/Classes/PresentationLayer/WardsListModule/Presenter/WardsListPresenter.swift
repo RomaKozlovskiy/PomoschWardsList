@@ -48,7 +48,8 @@ final class WardsListPresenter: WardsListPresenterProtocol {
     }
     
     func didSelectRow(with ward: WardModel) {
-        
+        let id = ward.id
+        router.openWardInfoModule(by: id)
     }
     
     // MARK: - Private Methods

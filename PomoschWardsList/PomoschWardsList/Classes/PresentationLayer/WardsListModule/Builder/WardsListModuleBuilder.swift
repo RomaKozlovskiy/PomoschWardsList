@@ -9,13 +9,8 @@ import UIKit
 
 final class WardsListModuleBuilder {
     
-    func build() -> UIViewController {
+    func build(with navigationController: UINavigationController) -> UIViewController {
         let viewController = WardsListViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        guard let navigationController = viewController.navigationController else {
-             fatalError("There is no navigationController")
-        }
-     
         let router = WardsListRouter(navigationController: navigationController)
         let wardsListService = WardsListService()
         let presenter = WardsListPresenter(
