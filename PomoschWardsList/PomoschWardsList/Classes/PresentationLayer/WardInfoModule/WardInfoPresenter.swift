@@ -13,7 +13,7 @@ import WardsAPI
 // MARK: - WardInfoPresenterProtocol
 
 protocol WardInfoPresenterProtocol: AnyObject {
-    func viewDidLoaded()
+   // func viewDidLoaded()
 }
 
 // MARK: - WardInfoPresenter
@@ -33,18 +33,18 @@ final class WardInfoPresenter: WardInfoPresenterProtocol {
     }
     
     // MARK: - Public Methods
-    
-    func viewDidLoaded() {
-        if let dateOfDeath = ward.dateOfDeath {
-            let dateOfBirth = dateFormatter(ward.dateOfBirth)
-            let dateOfDeath = dateFormatter(dateOfDeath)
-            let yearsOfLife = dateOfBirth + " - " + dateOfDeath
-            view?.showWardInfo(with: ward, yearsOfLife: yearsOfLife)
-        } else {
-            let dateOfBirth = dateFormatter(ward.dateOfBirth)
-            view?.showWardInfo(with: ward, yearsOfLife: dateOfBirth)
-        }
-    }
+//    
+//    func viewDidLoaded() {
+//        if let dateOfDeath = ward.dateOfDeath {
+//            let dateOfBirth = dateFormatter(ward.dateOfBirth)
+//            let dateOfDeath = dateFormatter(dateOfDeath)
+//            let yearsOfLife = dateOfBirth + " - " + dateOfDeath
+//            view?.showWardInfo(with: ward, yearsOfLife: yearsOfLife)
+//        } else {
+//            let dateOfBirth = dateFormatter(ward.dateOfBirth)
+//            view?.showWardInfo(with: ward, yearsOfLife: dateOfBirth)
+//        }
+//    }
     
     // MARK: - Private Methods
     //TODO: Сделать через extension, пересмотреть реализацию, сделать красивее и проще

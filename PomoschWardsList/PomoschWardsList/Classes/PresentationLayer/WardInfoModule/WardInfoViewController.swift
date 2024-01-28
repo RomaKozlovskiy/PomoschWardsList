@@ -41,7 +41,7 @@ final class WardInfoViewController: UIViewController {
         view.backgroundColor = .white
         addSubviews()
       //  applyConstraints()
-        presenter?.viewDidLoaded()
+       // presenter?.viewDidLoaded()
     }
     
     // MARK: - Private Methods
@@ -90,7 +90,7 @@ extension WardInfoViewController: WardInfoViewProtocol {
             fullNameLabel.text = ward.name.displayName
             yearsOfLifeLabel.text = yearsOfLife
             cityLabel.text = ward.city
-            storyLabel.text = ward.story
+            //storyLabel.text = ward.story
         }
 }
 

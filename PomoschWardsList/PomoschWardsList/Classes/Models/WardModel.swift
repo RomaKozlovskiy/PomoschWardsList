@@ -7,7 +7,14 @@
 
 import Foundation
 
-struct WardModel {
+struct WardListModel {
+    let id: String
+    let fullName: String
+    let city: String
+    let photoUrl: String
+}
+
+struct WardInfoModel {
     let id: String
     let fullName: String
     let dateOfBirth: String
@@ -23,6 +30,6 @@ struct PageInfoModel {
 }
 
 struct WardsListModel {
-    let wards: [WardModel]
-    let paheInfo: PageInfoModel?
+    let wards: [WardListModel]
+    let pageInfo: PageInfoModel?
 }

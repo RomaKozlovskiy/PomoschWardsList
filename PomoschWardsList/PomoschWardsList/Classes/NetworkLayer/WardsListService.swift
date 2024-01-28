@@ -61,14 +61,11 @@ final class WardsListService: WardsListServiceProtocol {
     // MARK: - Private Methods
     
     private func getWardsModel(
-        from wardsListQuery: [WardsListQuery.Data.Wards.Edge]?) -> [WardModel] {
+        from wardsListQuery: [WardsListQuery.Data.Wards.Edge]?) -> [WardListModel] {
         let wardsModel = wardsListQuery?.compactMap({ wardsListQuery in
-            WardModel(id: wardsListQuery.node.id,
+            WardListModel(id: wardsListQuery.node.id,
                       fullName: wardsListQuery.node.publicInformation.name.displayName,
-                      dateOfBirth: wardsListQuery.node.publicInformation.dateOfBirth,
-                      dateOfDeath: wardsListQuery.node.publicInformation.dateOfDeath,
                       city: wardsListQuery.node.publicInformation.city,
-                      story: wardsListQuery.node.publicInformation.story,
                       photoUrl: wardsListQuery.node.publicInformation.photo.url)
         })
         
@@ -87,7 +84,7 @@ final class WardsListService: WardsListServiceProtocol {
         from wardsListQuery: WardsListQuery.Data) -> WardsListModel {
         let wardsModel = getWardsModel(from: wardsListQuery.wards?.edges)
         let pageInfoModel = getPageInfo(from: wardsListQuery.wards?.pageInfo)
-        let wardsListModel = WardsListModel(wards: wardsModel, paheInfo: pageInfoModel)
+        let wardsListModel = WardsListModel(wards: wardsModel, pageInfo: pageInfoModel)
         return wardsListModel
     }
 }

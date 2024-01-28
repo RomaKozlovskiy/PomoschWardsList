@@ -8,18 +8,18 @@
 import Foundation
 
 protocol WardsListPresenterProtocol: AnyObject {
-    var wardsList: [WardModel]? { get set }
+    var wardsList: [WardListModel]? { get set }
 
     func viewDidLoad()
     func rowsWillEnd()
-    func didSelectRow(with ward: WardModel)
+    func didSelectRow(with ward: WardListModel)
 }
 
 final class WardsListPresenter: WardsListPresenterProtocol {
     
     // MARK: - Properties
     
-    var wardsList: [WardModel]?
+    var wardsList: [WardListModel]?
     
     private weak var view: WardsListViewProtocol?
     private var router: WardsListRouter
@@ -40,28 +40,38 @@ final class WardsListPresenter: WardsListPresenterProtocol {
     // MARK: - Public Methods
     
     func viewDidLoad() {
-        wardsListService.fetchWardsList(cursor: nil) { [weak self] result in
+        fetchWardsLest(cursor: nil)
+    }
+    
+    func rowsWillEnd() {
+        print(pageInfo?.endCursor)
+        fetchWardsLest(cursor: pageInfo?.endCursor)
+    }
+    
+    func didSelectRow(with ward: WardListModel) {
+        
+    }
+    
+    // MARK: - Private Methods
+    
+    private func fetchWardsLest(cursor: String?) {
+        wardsListService.fetchWardsList(cursor: cursor) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let wardsListModel):
                 if self.wardsList == nil {
                     self.wardsList = wardsListModel.wards
+                    self.pageInfo = wardsListModel.pageInfo
                     self.view?.reloadData()
                 } else {
                     self.wardsList?.append(contentsOf: wardsListModel.wards)
+                    self.pageInfo = wardsListModel.pageInfo
+                    self.view?.reloadData()
                 }
             case .failure(let error):
                 print(error)
             }
         }
-    }
-    
-    func rowsWillEnd() {
-        
-    }
-    
-    func didSelectRow(with ward: WardModel) {
-        
     }
 }
 

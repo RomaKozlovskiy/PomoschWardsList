@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 private enum Constants {
-    static let rowHeight: CGFloat = 150
+    static let rowHeight: CGFloat = 70
     static let cellInset = 10
     static let wardPhotoFrame = Int(rowHeight) - cellInset * 2
 }
@@ -58,7 +58,7 @@ final class WardsListTableViewCell: UITableViewCell {
         Constants.rowHeight
     }
     
-    func setupWith(ward: WardModel) {
+    func setupWith(ward: WardListModel) {
         wardsPhoto.loadPhotoFrom(stringUrl: ward.photoUrl)
         wardsFullName.text = ward.fullName
     }
