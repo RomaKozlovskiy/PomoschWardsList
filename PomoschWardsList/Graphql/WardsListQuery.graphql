@@ -12,21 +12,16 @@ query WardsList($first: Int, $after: String) {
         name {
           displayName
         }
-        dateOfBirth
-        dateOfDeath
         city
         photo {
-          url
+          url(variant: "small")
         }
-        story
       }
     }
-    cursor
   }
   pageInfo {
-    startCursor
     endCursor
     hasNextPage
   }
-}
+ }
 }

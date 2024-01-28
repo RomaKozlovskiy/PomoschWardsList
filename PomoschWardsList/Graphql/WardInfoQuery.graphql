@@ -1,0 +1,14 @@
+query WardInfo($id: ID!) {
+  wardById(id: $id) {
+    id
+    publicInformation {
+      name {
+        displayName
+      }
+      photo {
+        url
+      }
+      story
+    }
+  }
+}

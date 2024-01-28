@@ -13,13 +13,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        
         let navigationController = UINavigationController()
-        let assembly = Assembly()
-        let router = Router(navigationController: navigationController, assembly: assembly)
-        router.initialViewController()
+        let viewController = WardsListModuleBuilder().build(with: navigationController)
+        navigationController.setViewControllers([viewController], animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 }
-
