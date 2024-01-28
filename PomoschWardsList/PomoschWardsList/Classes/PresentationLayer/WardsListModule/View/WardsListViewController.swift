@@ -5,61 +5,55 @@
 //  Created by Роман Козловский on 24.01.2024.
 //
 
-// MARK: - Import
-
 import UIKit
 import SnapKit
 
-// MARK: - WardsListViewProtocol
+private enum Constants {
+    static let countOfWardsToTheEndOfList = 3
+}
 
 protocol WardsListViewProtocol: AnyObject {
     func reloadData()
 }
 
-// MARK: - WardsListViewController
-
 final class WardsListViewController: UIViewController {
     
     // MARK: - Properties
     
-    var presenter: WardsListPresenterProtocol?
-    private let tableView: UITableView = UITableView()
+    var presenter: WardsListPresenterProtocol!
+    private lazy var tableView: UITableView = UITableView()
     
     // MARK: - ViewLifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addSubviews()
-        applyConstraints()
-        setupTableView()
         
-        presenter?.fetchWardsList()
+        setupTableView()
+        presenter?.viewDidLoad()
     }
     
     // MARK: - Private Methods
-    
-    private func addSubviews() {
+  
+    private func setupTableView() {
         view.addSubview(tableView)
-    }
-    
-    private func applyConstraints() {
+
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    }
-    
-    private func setupTableView() {
+        
+        let reuseIdentifier = String(describing: WardsListTableViewCell.self)
         tableView.register(WardsListTableViewCell.self,
-                           forCellReuseIdentifier: String(describing: WardsListTableViewCell.self))
+                           forCellReuseIdentifier: reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
     }
 }
 
-// MARK: - WardsListViewProtocol Implementation
+// MARK: - WardsListViewProtocol 
 
 extension WardsListViewController: WardsListViewProtocol {
+    
     func reloadData() {
         tableView.reloadData()
     }
@@ -68,16 +62,20 @@ extension WardsListViewController: WardsListViewProtocol {
 // MARK: - UITableViewDataSource
 
 extension WardsListViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.wardsList.count ?? 0
+        return presenter.wardsList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: WardsListTableViewCell.self), for: indexPath) as? WardsListTableViewCell else {
+        let reuseIdentifier = String(describing: WardsListTableViewCell.self)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: reuseIdentifier,
+            for: indexPath) as? WardsListTableViewCell else {
             fatalError("The TableView could not dequeue a WardsListTableViewCell in ViewController.")
         }
         
-        if let ward = presenter?.wardsList[indexPath.row].node.publicInformation {
+        if let ward = presenter.wardsList?[indexPath.row] {
             cell.setupWith(ward: ward)
         }
         return cell
@@ -87,21 +85,21 @@ extension WardsListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension WardsListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        Constants.tableViewRowHeight
+        WardsListTableViewCell.rowHeight()
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let wardsCount = presenter?.wardsList.count else { return }
-        if indexPath.row == wardsCount - 3 {
-            presenter?.fetchAdditionalWardsList()
+        guard let wardsCount = presenter?.wardsList?.count else { return }
+        if indexPath.row == wardsCount - Constants.countOfWardsToTheEndOfList {
+            presenter.rowsWillEnd()
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let ward = presenter?.wardsList[indexPath.row].node.publicInformation else { return }
+        guard let ward = presenter.wardsList?[indexPath.row] else { return } //TODO: убрать node.pub......
         tableView.deselectRow(at: indexPath, animated: true)
-        presenter?.rowDidSelect(with: ward)
+        presenter.didSelectRow(with: ward)
     }
 }
-

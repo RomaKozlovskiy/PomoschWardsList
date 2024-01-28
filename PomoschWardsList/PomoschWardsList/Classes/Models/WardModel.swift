@@ -1,0 +1,28 @@
+//
+//  Ward.swift
+//  PomoschWardsList
+//
+//  Created by Роман Козловский on 28.01.2024.
+//
+
+import Foundation
+
+struct WardModel {
+    let id: String
+    let fullName: String
+    let dateOfBirth: String
+    let dateOfDeath: String?
+    let city: String
+    let story: String
+    let photoUrl: String
+}
+
+struct PageInfoModel {
+    let hasNextPage: Bool
+    let endCursor: String?
+}
+
+struct WardsListModel {
+    let wards: [WardModel]
+    let paheInfo: PageInfoModel?
+}

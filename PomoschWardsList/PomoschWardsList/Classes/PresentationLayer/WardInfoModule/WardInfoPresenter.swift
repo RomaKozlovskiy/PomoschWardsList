@@ -13,9 +13,6 @@ import WardsAPI
 // MARK: - WardInfoPresenterProtocol
 
 protocol WardInfoPresenterProtocol: AnyObject {
-    var view: WardInfoViewProtocol? { get set }
-    var ward: WardsListQuery.Data.Wards.Edge.Node.PublicInformation { get set }
-    
     func viewDidLoaded()
 }
 
@@ -25,8 +22,8 @@ final class WardInfoPresenter: WardInfoPresenterProtocol {
     
     // MARK: - Properties
     
-    weak var view: WardInfoViewProtocol?
-    var ward: WardsListQuery.Data.Wards.Edge.Node.PublicInformation
+    private weak var view: WardInfoViewProtocol?
+    private var ward: WardsListQuery.Data.Wards.Edge.Node.PublicInformation
     
     // MARK: - Init
     
@@ -50,7 +47,7 @@ final class WardInfoPresenter: WardInfoPresenterProtocol {
     }
     
     // MARK: - Private Methods
-    
+    //TODO: Сделать через extension, пересмотреть реализацию, сделать красивее и проще
     func dateFormatter(_ wardDate: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

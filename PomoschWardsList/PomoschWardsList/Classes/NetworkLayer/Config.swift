@@ -5,11 +5,7 @@
 //  Created by Роман Козловский on 25.01.2024.
 //
 
-// MARK: - Import
-
 import Foundation
-
-// MARK: - Config
 
 struct Config {
     enum Key: String {

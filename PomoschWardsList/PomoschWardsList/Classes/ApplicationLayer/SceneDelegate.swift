@@ -15,11 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let navigationController = UINavigationController()
-        let assembly = Assembly()
-        let router = Router(navigationController: navigationController, assembly: assembly)
-        router.initialViewController()
+      
+        let viewController = WardsListModuleBuilder().build()
+        navigationController.setViewControllers([viewController], animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 }
-

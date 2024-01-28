@@ -13,20 +13,20 @@
 		4E99A01C2B61A43A00726C31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E99A01B2B61A43A00726C31 /* Assets.xcassets */; };
 		4E99A01F2B61A43A00726C31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E99A01D2B61A43A00726C31 /* LaunchScreen.storyboard */; };
 		4EBB41192B626F3F00F8C47E /* WardsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41182B626F3F00F8C47E /* WardsListPresenter.swift */; };
-		4EBB411D2B62738000F8C47E /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB411C2B62738000F8C47E /* Assembly.swift */; };
-		4EBB411F2B62738600F8C47E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB411E2B62738600F8C47E /* Router.swift */; };
 		4EBB41212B62B3C000F8C47E /* WardsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41202B62B3C000F8C47E /* WardsListTableViewCell.swift */; };
 		4EBB41242B62FB1400F8C47E /* Extension + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */; };
 		4EBB41262B62FC4800F8C47E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41252B62FC4800F8C47E /* Config.swift */; };
-		4EBB41282B631B1B00F8C47E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB41272B631B1B00F8C47E /* Constants.swift */; };
 		4EBB412B2B63264800F8C47E /* WardInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB412A2B63264800F8C47E /* WardInfoViewController.swift */; };
 		4EBB412D2B63265000F8C47E /* WardInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB412C2B63265000F8C47E /* WardInfoPresenter.swift */; };
 		4EE1AF652B61A8EA0005C47F /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 4EE1AF642B61A8EA0005C47F /* Apollo */; };
 		4EE1AF6A2B61AC120005C47F /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 4EE1AF692B61AC120005C47F /* schema.graphqls */; };
 		4EE1AF6C2B61AC880005C47F /* WardsListQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4EE1AF6B2B61AC880005C47F /* WardsListQuery.graphql */; };
 		4EE1AF6F2B61AD3C0005C47F /* WardsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 4EE1AF6E2B61AD3C0005C47F /* WardsAPI */; };
-		4EE1AF712B61ADF40005C47F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE1AF702B61ADF40005C47F /* NetworkService.swift */; };
+		4EE1AF712B61ADF40005C47F /* WardsListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE1AF702B61ADF40005C47F /* WardsListService.swift */; };
 		4EE1AF792B61B2E70005C47F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4EE1AF782B61B2E70005C47F /* SnapKit */; };
+		4EF48EDD2B6581DA009169F3 /* WardsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF48EDC2B6581DA009169F3 /* WardsListRouter.swift */; };
+		4EF48EE32B658870009169F3 /* WardsListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF48EE22B658870009169F3 /* WardsListModuleBuilder.swift */; };
+		4EF48EE62B663F4E009169F3 /* WardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF48EE52B663F4E009169F3 /* WardModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,17 +38,17 @@
 		4E99A01E2B61A43A00726C31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E99A0202B61A43A00726C31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EBB41182B626F3F00F8C47E /* WardsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListPresenter.swift; sourceTree = "<group>"; };
-		4EBB411C2B62738000F8C47E /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
-		4EBB411E2B62738600F8C47E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		4EBB41202B62B3C000F8C47E /* WardsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListTableViewCell.swift; sourceTree = "<group>"; };
 		4EBB41232B62FB1400F8C47E /* Extension + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImageView.swift"; sourceTree = "<group>"; };
 		4EBB41252B62FC4800F8C47E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		4EBB41272B631B1B00F8C47E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4EBB412A2B63264800F8C47E /* WardInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardInfoViewController.swift; sourceTree = "<group>"; };
 		4EBB412C2B63265000F8C47E /* WardInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardInfoPresenter.swift; sourceTree = "<group>"; };
 		4EE1AF692B61AC120005C47F /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
 		4EE1AF6B2B61AC880005C47F /* WardsListQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = WardsListQuery.graphql; sourceTree = "<group>"; };
-		4EE1AF702B61ADF40005C47F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4EE1AF702B61ADF40005C47F /* WardsListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListService.swift; sourceTree = "<group>"; };
+		4EF48EDC2B6581DA009169F3 /* WardsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListRouter.swift; sourceTree = "<group>"; };
+		4EF48EE22B658870009169F3 /* WardsListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListModuleBuilder.swift; sourceTree = "<group>"; };
+		4EF48EE52B663F4E009169F3 /* WardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,32 +84,19 @@
 		4E99A0112B61A43800726C31 /* PomoschWardsList */ = {
 			isa = PBXGroup;
 			children = (
-				4EE1AF682B61AC120005C47F /* Graphql */,
-				4EE1AF732B61B0A70005C47F /* ApplicationLayer */,
-				4EBB41222B62FAF500F8C47E /* Extensions */,
-				4EE1AF742B61B0B60005C47F /* PresentationLayer */,
-				4EE1AF752B61B0CA0005C47F /* NetworkLayer */,
+				4EF48EDA2B657CE4009169F3 /* Classes */,
 				4EE1AF762B61B0EF0005C47F /* Resources */,
 			);
 			path = PomoschWardsList;
 			sourceTree = "<group>";
 		};
-		4EBB411A2B62735300F8C47E /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				4EBB411C2B62738000F8C47E /* Assembly.swift */,
-				4EBB411E2B62738600F8C47E /* Router.swift */,
-				4EBB41272B631B1B00F8C47E /* Constants.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		4EBB411B2B62735D00F8C47E /* WardsListModule */ = {
 			isa = PBXGroup;
 			children = (
-				4E99A0162B61A43800726C31 /* WardsListViewController.swift */,
-				4EBB41182B626F3F00F8C47E /* WardsListPresenter.swift */,
-				4EBB41202B62B3C000F8C47E /* WardsListTableViewCell.swift */,
+				4EF48EE12B65882F009169F3 /* Builder */,
+				4EF48EE02B658812009169F3 /* Router */,
+				4EF48EDF2B65880C009169F3 /* Presenter */,
+				4EF48EDE2B658803009169F3 /* View */,
 			);
 			path = WardsListModule;
 			sourceTree = "<group>";
@@ -145,8 +132,6 @@
 			children = (
 				4E99A0122B61A43800726C31 /* AppDelegate.swift */,
 				4E99A0142B61A43800726C31 /* SceneDelegate.swift */,
-				4E99A0202B61A43A00726C31 /* Info.plist */,
-				4E99A01D2B61A43A00726C31 /* LaunchScreen.storyboard */,
 			);
 			path = ApplicationLayer;
 			sourceTree = "<group>";
@@ -154,7 +139,7 @@
 		4EE1AF742B61B0B60005C47F /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				4EBB411A2B62735300F8C47E /* Common */,
+				4E99A01D2B61A43A00726C31 /* LaunchScreen.storyboard */,
 				4EBB411B2B62735D00F8C47E /* WardsListModule */,
 				4EBB41292B63261400F8C47E /* WardInfoModule */,
 			);
@@ -164,7 +149,7 @@
 		4EE1AF752B61B0CA0005C47F /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				4EE1AF702B61ADF40005C47F /* NetworkService.swift */,
+				4EE1AF702B61ADF40005C47F /* WardsListService.swift */,
 				4EBB41252B62FC4800F8C47E /* Config.swift */,
 			);
 			path = NetworkLayer;
@@ -173,9 +158,64 @@
 		4EE1AF762B61B0EF0005C47F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4EE1AF682B61AC120005C47F /* Graphql */,
+				4E99A0202B61A43A00726C31 /* Info.plist */,
 				4E99A01B2B61A43A00726C31 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4EF48EDA2B657CE4009169F3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4EE1AF732B61B0A70005C47F /* ApplicationLayer */,
+				4EE1AF742B61B0B60005C47F /* PresentationLayer */,
+				4EF48EE42B663EFC009169F3 /* Models */,
+				4EE1AF752B61B0CA0005C47F /* NetworkLayer */,
+				4EBB41222B62FAF500F8C47E /* Extensions */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4EF48EDE2B658803009169F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4E99A0162B61A43800726C31 /* WardsListViewController.swift */,
+				4EBB41202B62B3C000F8C47E /* WardsListTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EF48EDF2B65880C009169F3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4EBB41182B626F3F00F8C47E /* WardsListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4EF48EE02B658812009169F3 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				4EF48EDC2B6581DA009169F3 /* WardsListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		4EF48EE12B65882F009169F3 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				4EF48EE22B658870009169F3 /* WardsListModuleBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		4EF48EE42B663EFC009169F3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4EF48EE52B663F4E009169F3 /* WardModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,14 +301,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E99A0172B61A43800726C31 /* WardsListViewController.swift in Sources */,
-				4EBB41282B631B1B00F8C47E /* Constants.swift in Sources */,
+				4EF48EE62B663F4E009169F3 /* WardModel.swift in Sources */,
 				4EBB412D2B63265000F8C47E /* WardInfoPresenter.swift in Sources */,
-				4EBB411D2B62738000F8C47E /* Assembly.swift in Sources */,
+				4EF48EDD2B6581DA009169F3 /* WardsListRouter.swift in Sources */,
 				4EBB41242B62FB1400F8C47E /* Extension + UIImageView.swift in Sources */,
 				4EBB412B2B63264800F8C47E /* WardInfoViewController.swift in Sources */,
 				4E99A0132B61A43800726C31 /* AppDelegate.swift in Sources */,
-				4EBB411F2B62738600F8C47E /* Router.swift in Sources */,
-				4EE1AF712B61ADF40005C47F /* NetworkService.swift in Sources */,
+				4EE1AF712B61ADF40005C47F /* WardsListService.swift in Sources */,
+				4EF48EE32B658870009169F3 /* WardsListModuleBuilder.swift in Sources */,
 				4EBB41192B626F3F00F8C47E /* WardsListPresenter.swift in Sources */,
 				4EBB41262B62FC4800F8C47E /* Config.swift in Sources */,
 				4E99A0152B61A43800726C31 /* SceneDelegate.swift in Sources */,
@@ -418,7 +458,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UNMAYVRLD7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PomoschWardsList/ApplicationLayer/Info.plist;
+				INFOPLIST_FILE = PomoschWardsList/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -450,7 +490,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UNMAYVRLD7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PomoschWardsList/ApplicationLayer/Info.plist;
+				INFOPLIST_FILE = PomoschWardsList/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

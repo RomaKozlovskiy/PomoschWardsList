@@ -10,7 +10,7 @@
 import UIKit
 
 // MARK: - Extension UIImageView
-
+//TODO: разобраться как загружать фото в ячейку 
 extension UIImageView {
     func loadPhotoFrom(stringUrl: String) {
         guard let url = URL(string: stringUrl) else { return }

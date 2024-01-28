@@ -21,7 +21,7 @@ final class WardInfoViewController: UIViewController {
     
     // MARK: - Properties
     
-    var presenter: WardInfoPresenterProtocol?
+    var presenter: WardInfoPresenterProtocol!
     
     private lazy var wardPhoto: UIImageView = _wardPhoto
     private lazy var scrollView: UIScrollView = _scrollView
@@ -40,7 +40,7 @@ final class WardInfoViewController: UIViewController {
         
         view.backgroundColor = .white
         addSubviews()
-        applyConstraints()
+      //  applyConstraints()
         presenter?.viewDidLoaded()
     }
     
@@ -57,27 +57,27 @@ final class WardInfoViewController: UIViewController {
         stackView.addArrangedSubview(storyLabel)
     }
     
-    private func applyConstraints() {
-        wardPhoto.snp.makeConstraints {
-            $0.height.equalTo(Constants.wardPhotoEdge)
-            $0.width.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.centerX.equalToSuperview()
-        }
-        scrollView.snp.makeConstraints {
-            $0.top.equalTo(wardPhoto.snp.bottom).offset(Constants.scrollViewTopOffset)
-            $0.trailing.leading.bottom.equalToSuperview()
-        }
-        
-        contentView.snp.makeConstraints{
-            $0.edges.equalToSuperview()
-            $0.width.equalToSuperview()
-        }
-        
-        stackView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(Constants.stackViewInset)
-        }
-    }
+//    private func applyConstraints() {
+//        wardPhoto.snp.makeConstraints {
+//            $0.height.equalTo(Constants.wardPhotoEdge)
+//            $0.width.equalToSuperview()
+//            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+//            $0.centerX.equalToSuperview()
+//        }
+//        scrollView.snp.makeConstraints {
+//            $0.top.equalTo(wardPhoto.snp.bottom).offset(Constants.scrollViewTopOffset)
+//            $0.trailing.leading.bottom.equalToSuperview()
+//        }
+//        
+//        contentView.snp.makeConstraints{
+//            $0.edges.equalToSuperview()
+//            $0.width.equalToSuperview()
+//        }
+//        
+//        stackView.snp.makeConstraints {
+//            $0.edges.equalToSuperview().inset(Constants.stackViewInset)
+//        }
+//    }
 }
 
 // MARK: - WardInfoViewProtocol Implementation
