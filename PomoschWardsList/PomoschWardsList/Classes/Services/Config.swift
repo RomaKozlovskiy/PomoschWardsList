@@ -16,9 +16,11 @@ struct Config {
         guard let stringURL = Bundle.main.infoDictionary?[Key.graphqlURL.rawValue] as? String else {
             fatalError("Value for key \(Key.graphqlURL.rawValue) not found!")
         }
+        
         guard let graphqlURL = URL(string: stringURL) else {
             fatalError("Invalid server URL: \(stringURL)")
         }
+        
         return graphqlURL
     }
 }

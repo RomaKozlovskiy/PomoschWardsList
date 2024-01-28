@@ -31,14 +31,20 @@ final class WardsListTableViewCell: UITableViewCell {
     
     private lazy var wardFullName: UILabel = {
         let wardsFullName = UILabel()
-        wardsFullName.font = UIFont.systemFont(ofSize: Constants.wardsFullNameFontSize, weight: .regular)
+        wardsFullName.font = UIFont.systemFont(
+            ofSize: Constants.wardsFullNameFontSize, 
+            weight: .regular
+        )
         wardsFullName.numberOfLines = 2
         return wardsFullName
     }()
     
     private lazy var cityLabel: UILabel = {
         let cityLabel = UILabel()
-        cityLabel.font = UIFont.systemFont(ofSize: Constants.cityLabelFontSize, weight: .regular)
+        cityLabel.font = UIFont.systemFont(
+            ofSize: Constants.cityLabelFontSize, 
+            weight: .regular
+        )
         cityLabel.textColor = .gray
         cityLabel.numberOfLines = 2
         return cityLabel
@@ -90,13 +96,13 @@ final class WardsListTableViewCell: UITableViewCell {
         }
         
         wardFullName.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(10)
+            $0.top.equalToSuperview().inset(Constants.cellInset)
             $0.leading.equalTo(wardPhoto.snp.trailing).offset(Constants.cellInset)
             $0.trailing.equalToSuperview().inset(Constants.cellInset)
         }
         
         cityLabel.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(10)
+            $0.bottom.equalToSuperview().inset(Constants.cellInset)
             $0.leading.equalTo(wardPhoto.snp.trailing).offset(Constants.cellInset)
             $0.trailing.equalToSuperview().inset(Constants.cellInset)
         }

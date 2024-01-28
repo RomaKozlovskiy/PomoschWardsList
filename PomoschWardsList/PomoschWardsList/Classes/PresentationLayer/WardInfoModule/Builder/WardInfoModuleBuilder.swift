@@ -11,8 +11,12 @@ final class WardInfoModuleBuilder {
     
     func build(by id: String) -> UIViewController {
         let viewController = WardInfoViewController()
-        let wardsListService = WardsListService()
-        let presenter = WardInfoPresenter(view: viewController, wardsListService: wardsListService, wardID: id)
+        let wardsService = WardsService()
+        let presenter = WardInfoPresenter(
+            view: viewController,
+            wardsService: wardsService,
+            wardID: id
+        )
         viewController.presenter = presenter
         return viewController
     }

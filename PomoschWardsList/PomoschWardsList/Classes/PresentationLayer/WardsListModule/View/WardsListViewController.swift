@@ -64,7 +64,7 @@ extension WardsListViewController: WardsListViewProtocol {
 extension WardsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.wardsList?.count ?? 0
+        return presenter.wardsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,11 +74,8 @@ extension WardsListViewController: UITableViewDataSource {
             for: indexPath) as? WardsListTableViewCell else {
             fatalError("The TableView could not dequeue a WardsListTableViewCell in ViewController.")
         }
-        
-        guard let ward = presenter.wardsList?[indexPath.row] else {
-            return cell
-        }
-        
+        guard presenter.wardsList.count > indexPath.row else { return cell }
+        let ward = presenter.wardsList[indexPath.row]
         cell.setupWith(ward: ward)
         return cell
     }
@@ -93,15 +90,14 @@ extension WardsListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let wardsCount = presenter?.wardsList?.count else { return }
+        let wardsCount = presenter.wardsList.count
         if indexPath.row == wardsCount - Constants.countOfWardsToTheEndOfList {
-            presenter.rowsWillEnd()
+            presenter.tableViewDidScrollToEnd()
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let ward = presenter.wardsList?[indexPath.row] else { return } 
-        presenter.didSelectRow(with: ward)
+        presenter.didSelectRow(at: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

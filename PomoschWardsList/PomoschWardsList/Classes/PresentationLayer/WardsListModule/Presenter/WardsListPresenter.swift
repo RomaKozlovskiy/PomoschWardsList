@@ -8,33 +8,34 @@
 import Foundation
 
 protocol WardsListPresenterProtocol: AnyObject {
-    var wardsList: [WardModel]? { get set }
+    var wardsList: [WardModel] { get set }
 
     func viewDidLoad()
-    func rowsWillEnd()
-    func didSelectRow(with ward: WardModel)
+    func tableViewDidScrollToEnd()
+    func didSelectRow(at index: Int)
 }
 
 final class WardsListPresenter: WardsListPresenterProtocol {
     
     // MARK: - Properties
     
-    var wardsList: [WardModel]?
+    var wardsList = [WardModel]()
     
     private weak var view: WardsListViewProtocol?
     private var router: WardsListRouterProtocol
-    private var wardsListService: WardsListServiceProtocol
+    private var wardsService: WardsServiceProtocol
     
     private var pageInfo: PageInfoModel?
+    private var isLoading = false
     
     // MARK: - Init
     
     init(view: WardsListViewProtocol,
-         router: WardsListRouter,
-         wardsListService: WardsListServiceProtocol) {
+         router: WardsListRouterProtocol,
+         wardsService: WardsServiceProtocol) {
         self.view = view
         self.router = router
-        self.wardsListService = wardsListService
+        self.wardsService = wardsService
     }
     
     // MARK: - Public Methods
@@ -43,31 +44,30 @@ final class WardsListPresenter: WardsListPresenterProtocol {
         fetchWardsList(cursor: nil)
     }
     
-    func rowsWillEnd() {
+    func tableViewDidScrollToEnd() {
         fetchWardsList(cursor: pageInfo?.endCursor)
     }
     
-    func didSelectRow(with ward: WardModel) {
-        let id = ward.id
-        router.openWardInfoModule(by: id)
+    func didSelectRow(at index: Int) {
+        if index < wardsList.count {
+            let ward = wardsList[index]
+            router.openWardInfoModule(by: ward.id)
+        }
     }
     
     // MARK: - Private Methods
     
     private func fetchWardsList(cursor: String?) {
-        wardsListService.fetchWardsList(cursor: cursor) { [weak self] result in
+        guard !isLoading else { return }
+        isLoading = true
+        wardsService.fetchWardsList(cursor: cursor) { [weak self] result in
             guard let self = self else { return }
+            self.isLoading = false
             switch result {
             case .success(let wardsListModel):
-                if self.wardsList == nil {
-                    self.wardsList = wardsListModel.wards
-                    self.pageInfo = wardsListModel.pageInfo
-                    self.view?.reloadData()
-                } else {
-                    self.wardsList?.append(contentsOf: wardsListModel.wards)
-                    self.pageInfo = wardsListModel.pageInfo
-                    self.view?.reloadData()
-                }
+                self.wardsList.append(contentsOf: wardsListModel.wards)
+                self.pageInfo = wardsListModel.pageInfo
+                self.view?.reloadData()
             case .failure(let error):
                 print(error)
             }
