@@ -62,7 +62,7 @@ final class WardsService: WardsServiceProtocol {
         let query = WardsListQuery(
             first: firstQuery,
             after: afterQuery,
-            order:.case(.asc)
+            order: .case(.asc)
         )
         
         apollo.fetch(query: query) { [weak self] result in
