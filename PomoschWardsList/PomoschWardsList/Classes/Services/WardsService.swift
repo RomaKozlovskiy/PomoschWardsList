@@ -58,7 +58,12 @@ final class WardsService: WardsServiceProtocol {
         } else {
             afterQuery = nil
         }
-        let query = WardsListQuery(first: firstQuery, after: afterQuery)
+        
+        let query = WardsListQuery(
+            first: firstQuery,
+            after: afterQuery,
+            order: .case(.asc)
+        )
         
         apollo.fetch(query: query) { [weak self] result in
             DispatchQueue.main.async {

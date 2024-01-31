@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E31E89F2B6A9FF70033A20B /* WardInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E31E89E2B6A9FF70033A20B /* WardInfoModel.swift */; };
+		4E31E8A12B6AA00E0033A20B /* PageInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E31E8A02B6AA00E0033A20B /* PageInfoModel.swift */; };
+		4E31E8A32B6AA0260033A20B /* WardsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E31E8A22B6AA0260033A20B /* WardsListModel.swift */; };
 		4E99A0132B61A43800726C31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E99A0122B61A43800726C31 /* AppDelegate.swift */; };
 		4E99A0152B61A43800726C31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E99A0142B61A43800726C31 /* SceneDelegate.swift */; };
 		4E99A0172B61A43800726C31 /* WardsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E99A0162B61A43800726C31 /* WardsListViewController.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E31E89E2B6A9FF70033A20B /* WardInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardInfoModel.swift; sourceTree = "<group>"; };
+		4E31E8A02B6AA00E0033A20B /* PageInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageInfoModel.swift; sourceTree = "<group>"; };
+		4E31E8A22B6AA0260033A20B /* WardsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardsListModel.swift; sourceTree = "<group>"; };
 		4E99A00F2B61A43800726C31 /* PomoschWardsList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoschWardsList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E99A0122B61A43800726C31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E99A0142B61A43800726C31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -210,7 +216,10 @@
 		4EF48EE42B663EFC009169F3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4E31E8A22B6AA0260033A20B /* WardsListModel.swift */,
 				4EF48EE52B663F4E009169F3 /* WardModel.swift */,
+				4E31E8A02B6AA00E0033A20B /* PageInfoModel.swift */,
+				4E31E89E2B6A9FF70033A20B /* WardInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,12 +338,15 @@
 				4EBB412D2B63265000F8C47E /* WardInfoPresenter.swift in Sources */,
 				4EF48EDD2B6581DA009169F3 /* WardsListRouter.swift in Sources */,
 				4EBB412B2B63264800F8C47E /* WardInfoViewController.swift in Sources */,
+				4E31E8A32B6AA0260033A20B /* WardsListModel.swift in Sources */,
 				4E99A0132B61A43800726C31 /* AppDelegate.swift in Sources */,
+				4E31E8A12B6AA00E0033A20B /* PageInfoModel.swift in Sources */,
 				4EE1AF712B61ADF40005C47F /* WardsService.swift in Sources */,
 				4EF48EE32B658870009169F3 /* WardsListModuleBuilder.swift in Sources */,
 				4EBB41192B626F3F00F8C47E /* WardsListPresenter.swift in Sources */,
 				4EBB41262B62FC4800F8C47E /* Config.swift in Sources */,
 				4EF48EEE2B669E23009169F3 /* WardInfoModuleBuilder.swift in Sources */,
+				4E31E89F2B6A9FF70033A20B /* WardInfoModel.swift in Sources */,
 				4E99A0152B61A43800726C31 /* SceneDelegate.swift in Sources */,
 				4EBB41212B62B3C000F8C47E /* WardsListTableViewCell.swift in Sources */,
 			);
