@@ -7,23 +7,27 @@ public class WardsListQuery: GraphQLQuery {
   public static let operationName: String = "WardsList"
   public static let operationDocument: ApolloAPI.OperationDocument = .init(
     definition: .init(
-      #"query WardsList($first: Int, $after: String) { wards( first: $first after: $after order: { publicInformation: { name: { displayName: ASC } } } ) { __typename edges { __typename node { __typename id publicInformation { __typename name { __typename displayName } city photo { __typename url(variant: "small") } } } } pageInfo { __typename endCursor hasNextPage } } }"#
+      #"query WardsList($first: Int, $after: String, $order: SortEnumType!) { wards( first: $first after: $after order: { publicInformation: { name: { displayName: $order } } } ) { __typename edges { __typename node { __typename id publicInformation { __typename name { __typename displayName } dateOfBirth dateOfDeath city photo { __typename url(variant: "small") } story } } cursor } pageInfo { __typename startCursor endCursor hasNextPage } } }"#
     ))
 
   public var first: GraphQLNullable<Int>
   public var after: GraphQLNullable<String>
+  public var order: GraphQLEnum<SortEnumType>
 
   public init(
     first: GraphQLNullable<Int>,
-    after: GraphQLNullable<String>
+    after: GraphQLNullable<String>,
+    order: GraphQLEnum<SortEnumType>
   ) {
     self.first = first
     self.after = after
+    self.order = order
   }
 
   public var __variables: Variables? { [
     "first": first,
-    "after": after
+    "after": after,
+    "order": order
   ] }
 
   public struct Data: WardsAPI.SelectionSet {
@@ -35,7 +39,7 @@ public class WardsListQuery: GraphQLQuery {
       .field("wards", Wards?.self, arguments: [
         "first": .variable("first"),
         "after": .variable("after"),
-        "order": ["publicInformation": ["name": ["displayName": "ASC"]]]
+        "order": ["publicInformation": ["name": ["displayName": .variable("order")]]]
       ]),
     ] }
 
@@ -72,10 +76,13 @@ public class WardsListQuery: GraphQLQuery {
         public static var __selections: [ApolloAPI.Selection] { [
           .field("__typename", String.self),
           .field("node", Node.self),
+          .field("cursor", String.self),
         ] }
 
         /// The item at the end of the edge.
         public var node: Node { __data["node"] }
+        /// A cursor for use in pagination.
+        public var cursor: String { __data["cursor"] }
 
         /// Wards.Edge.Node
         ///
@@ -107,16 +114,25 @@ public class WardsListQuery: GraphQLQuery {
             public static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
               .field("name", Name.self),
+              .field("dateOfBirth", WardsAPI.Date.self),
+              .field("dateOfDeath", WardsAPI.Date?.self),
               .field("city", String.self),
               .field("photo", Photo.self),
+              .field("story", String.self),
             ] }
 
             /// Имя
             public var name: Name { __data["name"] }
+            /// Дата рождения
+            public var dateOfBirth: WardsAPI.Date { __data["dateOfBirth"] }
+            /// Дата смерти
+            public var dateOfDeath: WardsAPI.Date? { __data["dateOfDeath"] }
             /// Населённый пункт проживания
             public var city: String { __data["city"] }
             /// Фотография подопечного
             public var photo: Photo { __data["photo"] }
+            /// История подопечного
+            public var story: String { __data["story"] }
 
             /// Wards.Edge.Node.PublicInformation.Name
             ///
@@ -165,10 +181,13 @@ public class WardsListQuery: GraphQLQuery {
         public static var __parentType: ApolloAPI.ParentType { WardsAPI.Objects.PageInfo }
         public static var __selections: [ApolloAPI.Selection] { [
           .field("__typename", String.self),
+          .field("startCursor", String?.self),
           .field("endCursor", String?.self),
           .field("hasNextPage", Bool.self),
         ] }
 
+        /// When paginating backwards, the cursor to continue.
+        public var startCursor: String? { __data["startCursor"] }
         /// When paginating forwards, the cursor to continue.
         public var endCursor: String? { __data["endCursor"] }
         /// Indicates whether more edges exist following the set defined by the clients arguments.

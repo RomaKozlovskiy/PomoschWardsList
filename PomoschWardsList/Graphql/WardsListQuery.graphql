@@ -1,8 +1,13 @@
-query WardsList($first: Int, $after: String) {
+query WardsList(
+  $first: Int,
+  $after: String,
+  $order: SortEnumType!
+)
+  {
  wards
   (first: $first,
     after: $after,
-  order: {publicInformation: {name: {displayName: ASC}}}
+  order: {publicInformation: {name: {displayName: $order}}}
   )
    {
   edges {
@@ -12,14 +17,20 @@ query WardsList($first: Int, $after: String) {
         name {
           displayName
         }
+        dateOfBirth
+        dateOfDeath
         city
         photo {
           url(variant: "small")
         }
+       
+        story
       }
     }
+    cursor
   }
   pageInfo {
+    startCursor
     endCursor
     hasNextPage
   }

@@ -13,20 +13,3 @@ struct WardModel {
     let city: String
     let photoUrl: String
 }
-
-struct WardInfoModel {
-    let id: String
-    let fullName: String
-    let story: String
-    let photoUrl: String
-}
-
-struct PageInfoModel {
-    let hasNextPage: Bool
-    let endCursor: String?
-}
-
-struct WardsListModel {
-    let wards: [WardModel]
-    let pageInfo: PageInfoModel?
-}
